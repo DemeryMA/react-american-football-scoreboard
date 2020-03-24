@@ -7,7 +7,7 @@ function App() {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
   const [home, setHomeResult] = useState(0);
   const [away, setAwayResult] = useState(0);
-  const [timer, setTimer] = useState(1500);
+  
 
 
   
@@ -22,7 +22,7 @@ function App() {
 
             <div className="home__score">{home}</div>
           </div>
-          <div className="timer">00:03</div>
+          <div className="timer">05:00</div>
           <div className="away">
             <h2 className="away__name">Redskins</h2>
             <div className="away__score">{away}</div>
