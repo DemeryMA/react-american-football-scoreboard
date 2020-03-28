@@ -1,20 +1,21 @@
 :root {
   --black: #0d0d0d;
   --red: #ff2d2b;
+  background-image: url('./melanie-magdalena-KpBAYMNf9Tw-unsplash.jpg');
 }
 
 .scoreboard {
   width: 58%;
   margin: 10rem auto;
   background-color: slateblue;
-  background-image: url('./football.jpg');
+  background-image: url('./scoreboard.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
   border-radius: 0.5rem;
   margin-top: 10rem;
   padding: 5rem;
-  border: 4px solid #aaaaaa;
+  border: 4px solid black;
 }
 
 .topRow {
@@ -37,11 +38,11 @@
 }
 
 .home {
-  background-color: #656565;
+  background-color: rgb(163, 134, 59);
 }
 
 .away {
-  background-color: #af750a;
+  background-color: var(--black);
 }
 
 .home__name,
@@ -61,8 +62,8 @@
   font-size: 7rem;
   width: 90%;
   text-align: center;
-  background-color: var(--black);
-  color: var(--red);
+  background-color: black;
+  color: rgb(163, 134, 59);
   padding: 5%;
 }
 
@@ -71,7 +72,7 @@
   font-size: 9rem;
   padding: 2rem;
   text-align: center;
-  background-color: var(--black);
+  background-color: black;
   border: 2px solid white;
   border-radius: 6px;
 }
@@ -91,6 +92,7 @@
   flex-direction: column;
   justify-content: space-around;
   place-items: center;
+  text-shadow: 0 0 3px black;
 }
 
 .down__value,
@@ -99,10 +101,10 @@
 .quarter__value {
   font-family: "Ozone";
   font-size: 5rem;
-  color: var(--red);
+  color: rgb(163, 134, 59);
   width: 7rem;
   text-align: center;
-  background-color: var(--black);
+  background-color: black;
   margin-top: 1rem;
   border-radius: 4px;
   padding: 1.6rem;
@@ -114,13 +116,16 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-around;
+  
 }
 
 .homeButtons__touchdown,
 .homeButtons__fieldGoal,
 .awayButtons__touchdown,
-.awayButtons__fieldGoal {
+.awayButtons__fieldGoal,
+.reset {
   margin: 1rem;
   border-radius: 4px;
+  background-color: rgb(163, 134, 59);
 }
 
