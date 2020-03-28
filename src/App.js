@@ -90,7 +90,7 @@ function App() {
           </div>
           <div className={timerColor()}>{convertText(timer)}</div>
           <div className="away">
-            <h2 className="away__name">Visitors</h2>
+            <h2 className="away__name">Packers</h2>
             <div className="away__score">{away}</div>
           </div>
         </div>
