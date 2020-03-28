@@ -1,5 +1,5 @@
 //TODO: STEP 1 - Import the useState hook.
-import React, {useState} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import BottomRow from "./BottomRow";
 
@@ -7,8 +7,74 @@ function App() {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
   const [home, setHomeResult] = useState(0);
   const [away, setAwayResult] = useState(0);
+  const [timer, setTimer] = useState(1500);
   
+  const countRef = useRef(timer);
+  countRef.current = timer;
+  useEffect(() => {
+    let countdown = setInterval(() => {
+      if (countRef.current % 100 === 0) {
+        setTimer(countRef.current - 41);
+      } else {
+        setTimer(countRef.current - 1);
+      }
 
+      if(countRef.current===0){
+        clearInterval(countdown);
+      }
+
+    }, 1000);
+  }, []);
+
+  function timerColor() {
+    if (countRef.current <= 0) {
+      return "redFont timer";
+    } else {
+      return "timer";
+    }
+  }
+
+  function convertText(number) {
+    if (number > 0) {
+      let stringNum = number.toString();
+      let length = stringNum.length;
+
+      if (length === 4) {
+        let split = stringNum.split("");
+
+        split.splice(2, 0, ":");
+        let returnString = split.join("");
+
+        return returnString;
+      } else if (length === 3) {
+        let split = stringNum.split("");
+        split.splice(0, 0, "0");
+        split.splice(2, 0, ":");
+        let returnString = split.join("");
+
+        return returnString;
+      } else if (length === 2) {
+        let split = stringNum.split("");
+        split.splice(0, 0, "0");
+        split.splice(0, 0, "0");
+        split.splice(2, 0, ":");
+        let returnString = split.join("");
+
+        return returnString;
+      } else if (length === 1) {
+        let split = stringNum.split("");
+        split.splice(0, 0, "0");
+        split.splice(0, 0, "0");
+        split.splice(2, 0, ":");
+        split.splice(3, 0, "0");
+        let returnString = split.join("");
+
+        return returnString;
+      }
+    } else {
+      return "00:00";
+    }
+  }
 
   
   return (
@@ -22,7 +88,7 @@ function App() {
 
             <div className="home__score">{home}</div>
           </div>
-          <div className="timer">05:00</div>
+          <div className={timerColor()}>{convertText(timer)}</div>
           <div className="away">
             <h2 className="away__name">Redskins</h2>
             <div className="away__score">{away}</div>
@@ -49,3 +115,5 @@ function App() {
 }
 
 export default App;
+
+
